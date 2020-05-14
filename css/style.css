@@ -1,0 +1,157 @@
+*{
+margin: 0;padding: 0;
+font-family: monospace;
+color: lime;
+outline: none;
+cursor: url('../img/cursordefault.png'), auto;
+}
+
+::selection {
+  color: black;
+  background: lime;
+}
+:hover::selection{
+  color: lime;
+  background: black;
+}
+
+body{
+background-color: rgb(1, 31, 1);
+background-image: url("../img/background.jpg");
+background-size: cover;
+background-repeat: repeat-y;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input[type=number],input[type=text]{
+    font-size: 30px;
+    text-align: center;
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    text-shadow: 0px 0px 4px lime,0px 0px 14px lime;
+}
+
+input[type=text]{
+width: 73%;
+text-align: left;
+border-bottom: 2px solid lime;
+padding-left: 8px;
+cursor: url('../img/cursortext.png')10 10,text;
+}
+input[type=text]:hover{
+border-bottom: 2px solid black; 
+}
+
+label[type=number],label[type=text]{
+font-size: 27px;
+text-shadow: 0px 0px 4px lime,0px 0px 18px lime;;
+padding-left: 30px;
+}
+
+.btnmenos,.btnmais{
+font-size: 27px;
+border: none;
+padding: 0 7px;
+cursor: pointer;
+background-color: transparent;
+text-shadow: 0px 0px 4px lime,0px 0px 18px lime;
+cursor:url('../img/cursorhand.png') 10 0,pointer;
+}
+
+#tela{
+background-color: rgba(0, 128, 0, 0);
+width: 75%;
+height: 85%;
+max-width: 1000px;
+max-height: 650px;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translateX(-50%)translateY(-50%);
+box-shadow: lime 0 0 15px;
+border-radius: 15px;
+display: grid;
+grid-template-columns: 60% 40%;
+user-select: none;
+background-color: rgba(0, 0, 0, 0.5);
+}
+#atributos{
+/*width: 60%;*/
+width: 100%;
+}
+#profile{
+/*width: 40%;*/
+width: 100%;
+border-left: 1px solid rgba(0, 255, 0, 0.541);
+}
+
+#profile img{
+max-width: 100%;
+}
+
+
+.linhas{
+width: 100%;
+display: grid;
+grid-template-columns: 75% 25%;
+padding:12px 0;
+position: relative;
+}
+.linhas:hover,.linhas:hover .btnmenos,.linhas:hover .btnmais,.linhas:hover label,.linhas:hover input{
+background: lime;
+color: black;
+text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.678);
+box-shadow: 0px 0px 4px lime,0px 0px 14px lime;
+}
+#linhanome.linhas{
+display: inline-block;
+border-radius: 15px 0 0 0 ;
+}
+#linhanome.linhas:hover input[type=text]{
+  border-bottom: 2px solid black; 
+}
+
+#attrdesc{
+text-align: left;
+width: 90%;
+margin: 0 auto;
+font-size: 20px;
+text-shadow: 0px 0px 4px lime;
+}
+
+.inline{
+display: inline-flex;
+}
+
+#ptsrest{
+font-size:30px;
+text-shadow: 0px 0px 4px lime,0px 0px 18px lime;;
+text-align: center;
+margin-top: 15px;
+}
+
+#pontostudo{
+padding-right: 16px;
+font-weight: bold;
+}
+
+#reset{
+background-color: transparent;
+font-size:30px;
+border: none;
+margin-top: 20px;
+text-shadow: 0px 0px 4px lime,0px 0px 18px lime;
+cursor: url('../img/cursorhand.png'),pointer;
+}
+
+#reset:hover{
+font-size:30px;
+background: lime;
+color: black;
+text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.678);
+box-shadow: 0px 0px 4px lime,0px 0px 14px lime;
+}
