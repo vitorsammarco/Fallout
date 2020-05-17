@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.png" />
+    <title>Ficha Fallout</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div id="bg"></div>
+    <div id="tela">
+        <div id="atributos">
+            <div id="linhanome" class="linhas"><label type="text" class="label">Nome:</label>
+                <input id="nomeInput" type="text" onkeyup="atributos.atualizarNome()" spellcheck="false">
+            </div>
+        </div>
+
+        <div id="profile">
+            <img id="foto" src="img/default.png" alt="">
+            <p id="attrdesc">Conte-nos sobre você! O Vault-Tec precisa saber que tipo de cidadão você é para garantir
+                sua felicidade futura.</p>
+        </div>
+    </div>
+
+    <div id="btndd">
+        <img src="img/ddlogo.png" id="ddlogo">
+    </div>
+
+    <div id="ddpopup">
+        <input type="text" id="urlwebhook" spellcheck="false" placeholder="URL da WebHook" onchange="atributos.atualizarNome()">
+        <button id="enviarficha" onclick="atributos.enviardiscord()">[ Enviar ]</button>
+    </div>
+
+    
+    <script src="js/script.js"></script>
+</body>
+
+</html>

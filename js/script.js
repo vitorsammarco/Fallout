@@ -2,9 +2,10 @@ class Atributos {
     constructor(){
         this.listaNomes = [];
         this.listaPontos = [];
-        this.pontosTotais = 18;
+        this.pontosTotais = 16;
         this.foto=document.querySelector("#foto");
         this.nome;
+        this.urlWebHook;
         this.textoslongos=[
         'Força é uma medida do seu poder físico bruto. Afeta o quanto você pode carregar e os danos de todos os ataques corpo a corpo.',
         'Percepção é a sua consciência ambiental e o "sexto sentido". Afeta a precisão da arma no V.A.T.S.',
@@ -14,6 +15,50 @@ class Atributos {
         'Agilidade é uma medida de sua fineza e reflexos gerais. Afeta o número de pontos de ação no V.A.T.S. e sua capacidade de esgueirar-se.',
         'A sorte é uma medida da sua boa sorte geral. Isso afeta a taxa de recarga de ataques críticos e suas chances de encontrar itens melhores.'
         ]
+    }
+
+    hoverdiscord(){
+        document.querySelector('#btndd').addEventListener("mouseenter", e=>{
+            setTimeout(()=>{
+                document.getElementById("enviarficha").style.opacity= "1";
+            },350)
+        })
+
+        document.querySelector('#bg').addEventListener("mouseenter", e=>{
+            setTimeout(()=>{
+                document.getElementById("enviarficha").style.opacity= "0";
+            },0)
+        })
+
+    }
+
+    enviardiscord(){
+
+        var whurl = document.getElementById("urlwebhook").value;
+        var msgpronta = {"content":"","username":"Pip Boy", "avatar_url":"https://i.imgur.com/e2QY8gz.png", "embeds":[
+            {
+                "color": 65280,
+                "title":"Ficha - Fallout",
+                "description":"**"+this.nome+"**"+
+                
+                "\n"+ this.listaNomes[0] +": "+ this.listaPontos[0]+
+                "\n"+ this.listaNomes[1] +": "+ this.listaPontos[1]+ 
+                "\n"+ this.listaNomes[2] +": "+ this.listaPontos[2]+
+                "\n"+ this.listaNomes[3] +": "+ this.listaPontos[3]+
+                "\n"+ this.listaNomes[4] +": "+ this.listaPontos[4]+
+                "\n"+ this.listaNomes[5] +": "+ this.listaPontos[5]+
+                "\n"+ this.listaNomes[6] +": "+ this.listaPontos[6],
+                 "thumbnail": {
+                "url": "https://i.imgur.com/NDgvwEE.png"
+            }
+            }]};
+
+      fetch(whurl, 
+            {"username":"Pip Boy",
+            "method":"POST", 
+            "headers": {"content-type": "application/json"},
+            "body": JSON.stringify(msgpronta)})
+
     }
 
     trocarfoto(){
@@ -34,6 +79,7 @@ class Atributos {
     }
     atualizarNome(){
         this.nome=document.getElementById("nomeInput").value;
+        this.urlWebHook=document.getElementById("urlwebhook").value;
         this.salvar();
     }
     atualizarTotal(){
@@ -82,10 +128,15 @@ class Atributos {
         let listaPontosSave = JSON.stringify(this.listaPontos);
         let pontosTotaisSave = JSON.stringify(this.pontosTotais);
         let nomeSave = JSON.stringify(this.nome);
+        let urlWebHookSave = JSON.stringify(this.urlWebHook);
 
         if (this.nome != null || this.nome != undefined) {
             localStorage.setItem("nomeSave", nomeSave);
         }
+        if (this.urlWebHook != null || this.urlWebHook != undefined) {
+            localStorage.setItem("urlWebHookSave", urlWebHookSave);
+        }
+
         localStorage.setItem("listaPontosSave", listaPontosSave);
         localStorage.setItem("pontosTotaisSave", pontosTotaisSave);
     }
@@ -93,12 +144,17 @@ class Atributos {
         let listaPontosSave = JSON.parse(localStorage.getItem("listaPontosSave"));
         let pontosTotaisSave = JSON.parse(localStorage.getItem("pontosTotaisSave"));
         let nomeSave = JSON.parse(localStorage.getItem("nomeSave"));
+        let urlWebHookSave = JSON.parse(localStorage.getItem("urlWebHookSave"));
         if (listaPontosSave != null && listaPontosSave != "") {
             this.listaPontos = listaPontosSave;
             this.pontosTotais = pontosTotaisSave;
             this.nome = nomeSave;
+            this.urlWebHook = urlWebHookSave;
             if(this.nome != null && this.nome != "") {
                 document.getElementById("nomeInput").setAttribute("value", atributos.nome);
+            }
+            if(this.urlWebHook != null && this.urlWebHook != "") {
+                document.getElementById("urlwebhook").setAttribute("value", atributos.urlWebHook);
             }
         }else{
             for(let i=0; i<this.listaNomes.length; i++){
@@ -113,3 +169,4 @@ atributos.listaNomes = ['Força' ,'Percepção', 'Resistência', 'Carisma', 'Int
 atributos.criarInputs();
 atributos.atualizarTotal();
 atributos.trocarfoto();
+atributos.hoverdiscord();
