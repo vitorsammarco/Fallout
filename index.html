@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" ondragstart="return false" onContextMenu="return false">
+<html lang="pt-BR" >
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div id="bg"></div>
     <div id="tela">
         <div id="atributos">
             <div id="linhanome" class="linhas"><label type="text" class="label">Nome:</label>
@@ -24,6 +25,16 @@
         </div>
     </div>
 
+    <div id="btndd">
+        <img src="img/ddlogo.png" id="ddlogo">
+    </div>
+
+    <div id="ddpopup">
+        <input type="text" id="urlwebhook" spellcheck="false" placeholder="URL da WebHook" onchange="atributos.atualizarNome()">
+        <button id="enviarficha" onclick="atributos.enviardiscord()">[ Enviar ]</button>
+    </div>
+
+    
     <script src="js/script.js"></script>
 </body>
 
