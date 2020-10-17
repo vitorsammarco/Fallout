@@ -21,7 +21,7 @@ class Atributos {
         document.querySelector('#btndd').addEventListener("mouseenter", e=>{
             setTimeout(()=>{
                 document.getElementById("enviarficha").style.opacity= "1";
-            },350)
+            },0)
         })
 
         document.querySelector('#bg').addEventListener("mouseenter", e=>{
@@ -140,6 +140,7 @@ class Atributos {
         localStorage.setItem("listaPontosSave", listaPontosSave);
         localStorage.setItem("pontosTotaisSave", pontosTotaisSave);
     }
+    
     carregar(){
         let listaPontosSave = JSON.parse(localStorage.getItem("listaPontosSave"));
         let pontosTotaisSave = JSON.parse(localStorage.getItem("pontosTotaisSave"));
