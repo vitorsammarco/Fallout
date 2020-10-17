@@ -2,7 +2,7 @@ class Atributos {
     constructor(){
         this.listaNomes = [];
         this.listaPontos = [];
-        this.pontosTotais = 18;
+        this.pontosTotais = 21;
         this.foto=document.querySelector("#foto");
         this.nome;
         this.urlWebHook;
